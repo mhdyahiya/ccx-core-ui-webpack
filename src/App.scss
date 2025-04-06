@@ -1,0 +1,16 @@
+$bg-color: #f0f0f0;
+$font-stack: Arial, sans-serif;
+
+body {
+  font-family: $font-stack;
+  background: $bg-color;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  padding: 2rem;
+  text-align: center;
+  color: #333;
+  font-size: 1.5rem;
+}
