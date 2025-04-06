@@ -22,6 +22,7 @@
     "node": ">=21.6.1"
   },
   "scripts": {
+    "devsetup": "npm install && npm install build:dev && npm install start:dev",
     "start:dev": "webpack serve --open --config configs/dev/webpack.config.js",
     "build:dev": "webpack --config configs/dev/webpack.config.js",
     "build": "webpack --config configs/prod/webpack.config.js",
@@ -30,7 +31,7 @@
     "test:cover": "cross-env CI=true npm test -- --coverage --colors",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,scss,css,json,md}\"",
-    "clean-build": "rm -rf ./dist/ && rm -rf ./coverage/ && rm -rf ./node_modules/ && rm -f yarn.lock && rm -f package-lock.json && yarn devsetup"
+    "clean-build": "rm -rf ./dist/ && rm -rf ./coverage/ && rm -rf ./node_modules/ && rm -f rm -f package-lock.json && npm run devsetup"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -72,6 +73,7 @@
     "style-loader": "^4.0.0",
     "typescript": "^5.8.3",
     "webpack": "^5.98.0",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.1",
     "webpack-merge": "^6.0.1"

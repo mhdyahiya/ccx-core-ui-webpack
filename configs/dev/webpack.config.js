@@ -18,7 +18,7 @@ module.exports = merge(shared, {
       directory: path.resolve(__dirname, "../../dist"),
       publicPath: "/",
     },
-    port: Number(process.env.SERVER_PORT) || 3000,
+    port: Number(process.env.REACT_APP_SERVER_PORT) || 3000,
     open: true,
     compress: true,
     hot: true,

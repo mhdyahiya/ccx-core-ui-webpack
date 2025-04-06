@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Dotenv = require("dotenv-webpack");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const deps = require("../../package.json").dependencies;
 
 module.exports = {
@@ -67,6 +68,11 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "assets/css/[name].[contenthash].css",
       chunkFilename: "assets/css/[name].[contenthash].chunk.css",
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+      reportFilename: 'bundle-report.html',
     }),
   ],
 };

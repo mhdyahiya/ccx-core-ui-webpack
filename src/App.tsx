@@ -7,8 +7,6 @@ const App: FC = () => {
   const [count, setCount] = useState<number>(0);
   const [now] = useState(new Date());
 
-  console.log(process.env.TEST_API_URL);
-
   const handleButtonClick = () => setCount(c => c + 1);
 
   const handleComponentButtonClick = () => alert('Clicked!');

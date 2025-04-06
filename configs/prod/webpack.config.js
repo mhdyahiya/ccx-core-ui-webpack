@@ -9,7 +9,7 @@ const contentBasePath = path.resolve(
   __dirname,
   `../../dist/${appDetails.name}`,
 );
-const publicPath = `${process.env.PUBLIC_PATH}/${appDetails.name}/`;
+const publicPath = `${process.env.REACT_APP_PUBLIC_PATH}/${appDetails.name}/`;
 
 module.exports = merge(shared, {
   mode: "production",
