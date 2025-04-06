@@ -1,0 +1,178 @@
+# CCX Core UI
+
+A modern React module federation library that exposes reusable UI components and utilities.
+
+## Overview
+
+CCX Core UI is built with React 19, TypeScript, and Webpack 5. It serves as a UI component library that can be consumed by other applications through Module Federation.
+
+## Technologies
+
+- React 19.1.0
+- TypeScript 5.8.3
+- Webpack 5.98.0
+- SCSS for styling
+- Module Federation for component sharing
+- Jest for testing
+
+## Prerequisites
+
+- Node.js >=21.6.1
+
+## Getting Started
+
+### Installation
+
+```bash
+# Clone the repository
+git clone ....
+cd ...
+
+# Install dependencies
+npm install
+```
+
+### Development
+
+```bash
+# Start development server
+npm run start:dev
+
+# Build for development
+npm run build:dev
+```
+
+### Production
+
+```bash
+# Build for production
+npm run build
+```
+
+### Testing
+
+```bash
+# Run tests
+npm test
+
+# Run tests with coverage
+npm run test:cover
+
+# Run tests in development mode
+npm run test:dev
+```
+
+### Linting and Formatting
+
+```bash
+# Lint code
+npm run lint
+
+# Format code
+npm run format
+```
+
+### Clean Build
+
+```bash
+# Clean and reinstall dependencies
+npm run clean-build
+```
+
+## Module Federation
+
+This project exposes the following components and utilities via Module Federation:
+
+- `./components` - React UI components
+- `./utils` - Utility functions
+
+### Consuming Components
+
+In the consuming application, you'll need to configure Module Federation to consume these components:
+
+```javascript
+// webpack.config.js of consuming app
+const { ModuleFederationPlugin } = require('webpack').container;
+
+module.exports = {
+  // ...other webpack config
+  plugins: [
+    new ModuleFederationPlugin({
+      name: 'consumer',
+      remotes: {
+        ccxcoreui: 'ccxcoreui@http://localhost:3000/remoteEntry.js',
+      },
+      // ...other Module Federation config
+    }),
+  ],
+};
+```
+
+Then, you can import and use components in your application:
+
+```jsx
+// Using a component
+import { MyButton } from 'ccxcoreui/components';
+
+function App() {
+  return (
+    <div>
+      <MyButton label="Click me" onClick={() => alert('Clicked!')} />
+    </div>
+  );
+}
+```
+
+```jsx
+// Using a utility
+import { formatDate } from 'ccxcoreui/utils';
+
+function DateDisplay() {
+  return <div>Today is {formatDate(new Date())}</div>;
+}
+```
+
+## Project Structure
+
+```
+├── configs/               # Webpack configurations
+│   ├── dev/               # Development config
+│   ├── prod/              # Production config
+│   └── shared/            # Shared config
+├── public/                # Static assets
+├── src/                   # Source code
+│   ├── components/        # React components
+│   ├── utils/             # Utility functions
+│   ├── App.tsx            # Main App component
+│   └── index.tsx          # Entry point
+├── .babelrc               # Babel configuration
+├── .eslintrc.js           # ESLint configuration
+├── .prettierrc            # Prettier configuration
+├── jest.config.js         # Jest configuration
+├── package.json           # Dependencies and scripts
+└── tsconfig.json          # TypeScript configuration
+```
+
+## Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+
+```
+# Development
+TEST_API_URL=https://dev-api.example.com
+
+# Production
+PUBLIC_PATH=/static
+```
+
+## Contributing
+
+Please follow the project's coding standards when contributing:
+- Use Prettier for code formatting
+- Follow ESLint rules
+- Write tests for new features
+- Use SCSS for styling (avoid inline styles)
+
+## License
+
+ISC
