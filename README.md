@@ -14,6 +14,7 @@ CCX Core UI is built with React 19, TypeScript, and Webpack 5. It serves as a UI
 - SCSS for styling
 - Module Federation for component sharing
 - Jest for testing
+- Redux Toolkit for state management
 
 ## Prerequisites
 
@@ -25,8 +26,8 @@ CCX Core UI is built with React 19, TypeScript, and Webpack 5. It serves as a UI
 
 ```bash
 # Clone the repository
-git clone ....
-cd ...
+git clone https://github.com/mhdyahiya/ccx-core-ui-webpack.git
+cd ccx-core-ui-webpack
 
 # Install dependencies
 npm install
@@ -86,6 +87,12 @@ This project exposes the following components and utilities via Module Federatio
 - `./components` - React UI components
 - `./utils` - Utility functions
 
+### Exposed Components and Utilities
+
+Currently, the following are exposed:
+- `MyButton` - A customizable button component
+- `formatDate` - A date formatting utility
+
 ### Consuming Components
 
 In the consuming application, you'll need to configure Module Federation to consume these components:
@@ -135,22 +142,29 @@ function DateDisplay() {
 ## Project Structure
 
 ```
-├── configs/               # Webpack configurations
-│   ├── dev/               # Development config
-│   ├── prod/              # Production config
-│   └── shared/            # Shared config
-├── public/                # Static assets
-├── src/                   # Source code
-│   ├── components/        # React components
-│   ├── utils/             # Utility functions
-│   ├── App.tsx            # Main App component
-│   └── index.tsx          # Entry point
-├── .babelrc               # Babel configuration
-├── .eslintrc.js           # ESLint configuration
-├── .prettierrc            # Prettier configuration
-├── jest.config.js         # Jest configuration
-├── package.json           # Dependencies and scripts
-└── tsconfig.json          # TypeScript configuration
+├── .github/                # GitHub configuration files
+│   ├── workflows/          # GitHub Actions workflows
+│   └── ISSUE_TEMPLATE/     # Issue templates
+├── configs/                # Webpack configurations
+│   ├── dev/                # Development config
+│   ├── prod/               # Production config
+│   └── shared/             # Shared config
+├── public/                 # Static assets
+├── src/                    # Source code
+│   ├── components/         # React components
+│   ├── store/              # Redux store configuration
+│   │   └── slices/         # Redux slices
+│   ├── utils/              # Utility functions
+│   ├── App.tsx             # Main App component
+│   └── index.tsx           # Entry point
+├── .babelrc                # Babel configuration
+├── .eslintrc.js            # ESLint configuration
+├── .prettierrc             # Prettier configuration
+├── jest.config.js          # Jest configuration
+├── CONTRIBUTING.md         # Contribution guidelines
+├── LICENSE                 # License information
+├── package.json            # Dependencies and scripts
+└── tsconfig.json           # TypeScript configuration
 ```
 
 ## Environment Variables
@@ -160,18 +174,33 @@ Create a `.env` file in the root directory with the following variables:
 ```
 # Development
 TEST_API_URL=https://dev-api.example.com
+REACT_APP_SERVER_PORT=3000
 
 # Production
-PUBLIC_PATH=/static
+REACT_APP_PUBLIC_PATH=/static
+```
+
+## Available Components
+
+### MyButton
+
+A customizable button component with the following props:
+
+```typescript
+type MyButtonProps = {
+  label: string;
+  onClick?: () => void;
+};
+```
+
+Example usage:
+```jsx
+<MyButton label="Submit" onClick={() => submitForm()} />
 ```
 
 ## Contributing
 
-Please follow the project's coding standards when contributing:
-- Use Prettier for code formatting
-- Follow ESLint rules
-- Write tests for new features
-- Use SCSS for styling (avoid inline styles)
+Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed contribution guidelines.
 
 ## License
 
