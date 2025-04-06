@@ -34,8 +34,10 @@
     "clean-build": "rm -rf ./dist/ && rm -rf ./coverage/ && rm -rf ./node_modules/ && rm -f rm -f package-lock.json && npm run devsetup"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.6.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-redux": "^9.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",

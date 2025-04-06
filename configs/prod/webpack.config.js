@@ -3,6 +3,7 @@ const shared = require("../shared/webpack.config");
 const path = require("path");
 const CompressionPlugin = require("compression-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const appDetails = require("../../package.json");
 const contentBasePath = path.resolve(
@@ -28,5 +29,12 @@ module.exports = merge(shared, {
     minimize: true,
     minimizer: [new CssMinimizerPlugin()],
   },
-  plugins: [new CompressionPlugin()],
+  plugins: [
+    new CompressionPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+      reportFilename: 'bundle-report.html',
+    })
+  ],
 });

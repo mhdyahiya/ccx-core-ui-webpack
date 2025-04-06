@@ -21,7 +21,7 @@ module.exports = merge(shared, {
     port: Number(process.env.REACT_APP_SERVER_PORT) || 3000,
     open: true,
     compress: true,
-    hot: true,
+    hot: false,
     historyApiFallback: true,
     headers: {
       "Access-Control-Allow-Origin": "*",
