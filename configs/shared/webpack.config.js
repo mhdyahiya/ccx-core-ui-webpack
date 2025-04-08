@@ -45,20 +45,12 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./formatDate": path.resolve(__dirname, "../../src/utils/formatDate"),
-        "./MyButton": path.resolve(__dirname, "../../src/components/MyButton"),
+        "./MyButton": path.resolve(__dirname, "../../src/components/MyButton/MyButton"),
+        "./App": path.resolve(__dirname, "../../src/App"),
       },
       shared: {
-        ...deps,
-        react: {
-          singleton: true,
-          eager: true,
-          requiredVersion: deps.react,
-        },
-        "react-dom": {
-          singleton: true,
-          eager: true,
-          requiredVersion: deps["react-dom"],
-        },
+        // react: { singleton: true, requiredVersion: deps.react },
+        // 'react-dom': { singleton: true, requiredVersion: deps['react-dom'] },
       },
     }),
     new HtmlWebpackPlugin({

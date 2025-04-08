@@ -2,7 +2,7 @@
   "name": "ccx-core-ui",
   "description": "CCX Core UI",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.tsx",
   "keywords": [],
   "author": {
     "name": "",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:mhdyahiya/ccx-core-ui-webpack.git"
+    "url": "git@code.devops.fds.com:CCX/ccx-checkout-ui.git"
   },
   "config": {},
   "licenses": [
@@ -49,8 +49,8 @@
     "@types/jest": "^29.5.14",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
-    "@typescript-eslint/eslint-plugin": "^8.29.0",
-    "@typescript-eslint/parser": "^8.29.0",
+    "@typescript-eslint/eslint-plugin": "^8.29.1",
+    "@typescript-eslint/parser": "^8.29.1",
     "babel-jest": "^29.7.0",
     "babel-loader": "^10.0.0",
     "compression-webpack-plugin": "^11.1.0",
@@ -74,7 +74,7 @@
     "sass-loader": "^16.0.5",
     "style-loader": "^4.0.0",
     "typescript": "^5.8.3",
-    "webpack": "^5.98.0",
+    "webpack": "^5.99.1",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.1",

@@ -2,7 +2,7 @@ import { useState, FC } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState, AppDispatch } from 'src/store';
 import { increment, decrement } from 'src/store/slices/counterSlice';
-import MyButton from 'src/components/MyButton';
+import MyButton from 'src/components/MyButton/MyButton';
 import formatDate from 'src/utils/formatDate';
 import './App.scss';
 
